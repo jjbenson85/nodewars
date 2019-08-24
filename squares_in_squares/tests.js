@@ -1,7 +1,9 @@
-const squares = require('./squares.js')
-const alternative = require('./alternative.js')
-const decompose = squares.decompose
+const decompose = require('./squares.js')
+// const decompose = squares.decompose
+// const alternative = require('./alternative.js')
 // const decompose = alternative.decompose
+// const alternativeX = require('./alternativeX.js')
+// const decompose = alternativeX.decompose
 
 const tests =[
     {
@@ -119,6 +121,7 @@ const runTests = () => {
             console.log(`Test ${++testCount}: ${test.input}`)
             const answer = decompose(test.input)
             if (isEqual(answer, test.result)) {
+                console.log(answer,test.result)
                 console.log(`${++testSuccessCount} of ${tests.length} tests passed`)
                 console.log('------------------------\n')
             }

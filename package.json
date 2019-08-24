@@ -1,0 +1,17 @@
+{
+  "name": "nodewars",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:jjbenson85/nodewars.git",
+  "author": "James Benson <jjbenson85@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "jest": "^24.9.0"
+  }
+  
+    
+  
+}

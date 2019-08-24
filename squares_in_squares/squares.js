@@ -7,7 +7,7 @@ const reduceSideLength = (num, oldNum, arr) => (
         : num
     )
 // Round number to largest integer smaller than square root of x
-const roundRoot = (x) => parseInt(Math.sqrt(x))git
+const roundRoot = (x) => parseInt(Math.sqrt(x))
 // When sidelength is zero, remove last values from arrays,
 // take the last length and reduce it
 const sideLengthIsZero = (lengthArr, areaArr) => {
@@ -21,6 +21,7 @@ const sideLengthIsZero = (lengthArr, areaArr) => {
 }
 // Recursive function that returns an array of numbers whose squares sum to the sqare of the given number
 const getNextSquare = (sideLength, remainingArea, sideLengthArr, remainingAreaArr) => {
+   global.count++
     // Calc new square
     const newSquare = sideLength ** 2
     // Get remaining area 
@@ -53,7 +54,8 @@ const getNextSquare = (sideLength, remainingArea, sideLengthArr, remainingAreaAr
         ? sideLengthArr.reverse()
         : getNextSquare(sideLength, remainingArea, sideLengthArr, remainingAreaArr)
 }
-
 const decompose = (n) => getNextSquare(n-1, n ** 2, [],[])
 
-module.exports.decompose = decompose
+
+
+module.exports = decompose

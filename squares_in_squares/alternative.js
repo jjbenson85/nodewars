@@ -1,4 +1,4 @@
-function decomposeAux(remainingArea, len) {
+function decomposeAux(remainingArea, nextLength) {
     // If remaining area is zero, return an array
     if (remainingArea == 0) return [];
 
@@ -38,5 +38,9 @@ function decompose(n) {
     // I am not sure why they didn't pass n-1 as the second argument as this works as well.
     /* return decomposeAux(n * n, n-1); */
 } 
+
+process.argv.forEach(function (val, index, array) {
+    if (index >= 2) console.log(decompose(val))
+});
 
 module.exports.decompose = decompose
