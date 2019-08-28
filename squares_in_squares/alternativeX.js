@@ -1,4 +1,4 @@
-function decomposeAux(remainingArea, nextLength) {
+function decompose(n, remainingArea=n*n, nextLength=n-1) {
     // If remaining area is zero, return an array
     if (remainingArea == 0) return [];
 
@@ -18,7 +18,7 @@ function decomposeAux(remainingArea, nextLength) {
         // Get the new length by square rooting the difference and rounding down
         const newLength = ~~Math.sqrt(diff);
         // Set the length array to be equal to returned value of this function
-        lengthArray = decomposeAux(diff, newLength);
+        lengthArray = decompose(n, diff, newLength);
 
         //If we have a solution we can push this length into the array
         if (lengthArray != null) {
@@ -32,13 +32,13 @@ function decomposeAux(remainingArea, nextLength) {
 }
 
 // ~~ is faster Math.floor
-function decompose(n) {
+// function xdecompose(n) {
     // Pass in the starting area and the side length of the next smallest square
     // return decomposeAux(n * n, ~~Math.sqrt(n * n - 1));
 
     // I am not sure why they didn't pass n-1 as the second argument as this works as well.
-     return decomposeAux(n * n, n-1); 
-} 
+    //  return decomposeAux(n, n * n, n-1); 
+// } 
 
 
-module.exports.decompose = decompose
+module.exports = decompose
