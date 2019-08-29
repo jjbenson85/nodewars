@@ -1,9 +1,7 @@
 const reversible_primes = require('./main.js')
 
-test('reversible_primes is defines', () => {
+test('reversible_primes is defined', () => {
     expect(reversible_primes(1)).toBeDefined();
-    expect(reversible_primes(10)).toBeDefined();
-    expect(reversible_primes(567)).toBeDefined();
 });
 
 test('passes basic tests', ()=> {
