@@ -10,41 +10,31 @@ function isPrime(n) {
     }
     return true
 }
-const revPrimeTable = [2, 3, 5, 7, 11, 13]
-const primeSet = new Set(revPrimeTable)
-
+const revPrimeArr = [2, 3, 5, 7, 11, 13]
+const primeSet = new Set(revPrimeArr)
+const checkIsPrime = (num, primeSet) => {
+    if (primeSet.has(num)) return true
+    if (!isPrime(num)) return false
+    primeSet.add(num)
+    return true
+}
 function reversiblePrime(n) {
 
-    if (revPrimeTable[n]) return revPrimeTable[n]
+    if (revPrimeArr[n]) return revPrimeArr[n]
 
-    let count = revPrimeTable.length - 1
-    let num =   revPrimeTable[count] + 1
+    let count = revPrimeArr.length - 1
+    let num = revPrimeArr[count] + 1
 
     for(num; count !== n; num++){
-        let numIsPrime = primeSet.has(num)
-        if(!numIsPrime){
-            if (isPrime(num)){
-                primeSet.add(num)
-                numIsPrime = true
-            }else{
-                continue
-            }
-        }
+        const numIsPrime = checkIsPrime(num, primeSet)
+        if(!numIsPrime) continue
 
         const revNum = parseInt(num.toString().split('').reverse().join(''))
-        let revNumIsPrime = primeSet.has(revNum)
-        if(!revNumIsPrime){
-            if(isPrime(revNum)){
-                primeSet.add(revNum)
-                revNumIsPrime = true
-            }else{
-                continue
-            }
-        }
-        if (numIsPrime && revNumIsPrime){
-            count++ 
-            revPrimeTable.push(num) 
-        } 
+        const revNumIsPrime = checkIsPrime(revNum, primeSet)
+        if (!revNumIsPrime) continue
+
+        count++
+        revPrimeArr.push(num) 
     }
     return --num
 }
